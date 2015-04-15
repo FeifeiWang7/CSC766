@@ -1,0 +1,1048 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#"
+     xml:base="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#consistsOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#consistsOf">
+        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#hasLowerLevel -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#hasLowerLevel">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#hasUpperLevel"/>
+        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#hasUpperLevel -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#hasUpperLevel">
+        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#organizedInto -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#organizedInto"/>
+    
+
+
+    <!-- http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#scope -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#scope">
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#grid"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#threadBlock"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#warp"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#shareScope -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#shareScope">
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#Core"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#Die"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#SM"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#TPC"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#CoresPerSM -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#CoresPerSM">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#hasNumberValue"/>
+        <rdfs:range rdf:resource="&xsd;integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#SMPerTPC -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#SMPerTPC">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#hasNumberValue"/>
+        <rdfs:range rdf:resource="&xsd;integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#TPCPerDie -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#TPCPerDie">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#hasNumberValue"/>
+        <rdfs:range rdf:resource="&xsd;integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#accessible -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#accessible"/>
+    
+
+
+    <!-- http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#banks -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#banks">
+        <rdfs:subPropertyOf rdf:resource="&owl;topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#blocksPerGrid -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#blocksPerGrid">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#hasNumberValue"/>
+        <rdfs:range rdf:resource="&xsd;integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#busWidth -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#busWidth"/>
+    
+
+
+    <!-- http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#concurrencyFactor -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#concurrencyFactor"/>
+    
+
+
+    <!-- http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#hasBlockSize -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#hasBlockSize">
+        <rdfs:subPropertyOf rdf:resource="&owl;topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#hasDimension -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#hasDimension">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="&xsd;integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#hasID -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#hasID">
+        <rdfs:range rdf:resource="&xsd;integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#hasLatency -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#hasLatency"/>
+    
+
+
+    <!-- http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#hasName -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#hasName">
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#hasNumberValue -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#hasNumberValue"/>
+    
+
+
+    <!-- http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#hasSize -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#hasSize"/>
+    
+
+
+    <!-- http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#hasValue -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#hasValue"/>
+    
+
+
+    <!-- http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#membus -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#membus">
+        <rdfs:comment rdf:datatype="&xsd;integer">bytes</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#nubmerOfCores -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#nubmerOfCores">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#hasNumberValue"/>
+        <rdfs:range rdf:resource="&xsd;integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#numberOfDies -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#numberOfDies">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#hasNumberValue"/>
+        <rdfs:range rdf:resource="&xsd;integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#numberOfThreads -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#numberOfThreads">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#hasNumberValue"/>
+        <rdfs:range rdf:resource="&xsd;integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#pieces -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#pieces">
+        <rdfs:comment>?</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#softwareManageable -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#softwareManageable">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+        <rdfs:subPropertyOf rdf:resource="&owl;topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#threadsGroup -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#threadsGroup"/>
+    
+
+
+    <!-- http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#threadsPerBlock -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#threadsPerBlock">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#hasNumberValue"/>
+        <rdfs:range rdf:resource="&xsd;integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#Bus -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#Bus">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#hardware"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#CUDA -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#CUDA">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#software"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#Cache -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#Cache">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#Memory"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#ConstantMemory -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#ConstantMemory">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#Memory"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#Core -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#Core">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#hardware"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#Die -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#Die">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#hardware"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#consistsOf"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#TPC"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#GPU -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#GPU">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#hardware"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#consistsOf"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#Memory"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#consistsOf"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#Processor"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#GlobalMemory -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#GlobalMemory">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#Memory"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#L1 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#L1">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#Cache"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#L1_constant -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#L1_constant">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#L1"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#L1_global -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#L1_global">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#L1"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#L1_readonly -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#L1_readonly">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#L1"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#L1_texture -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#L1_texture">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#L1"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#L2 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#L2">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#Cache"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#L2_constant -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#L2_constant">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#L2"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#L2_global -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#L2_global">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#L2"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#L2_readonly -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#L2_readonly">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#L2"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#L2_texture -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#L2_texture">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#L2"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#Memory -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#Memory">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#hardware"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#MemoryBus -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#MemoryBus">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#Bus"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#busWidth"/>
+                <owl:someValuesFrom rdf:resource="&xsd;integer"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#Processor -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#Processor">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#hardware"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#CoresPerSM"/>
+                <owl:someValuesFrom rdf:resource="&xsd;integer"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#TPCPerDie"/>
+                <owl:someValuesFrom rdf:resource="&xsd;integer"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#membus"/>
+                <owl:someValuesFrom rdf:resource="&xsd;integer"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#SMPerTPC"/>
+                <owl:someValuesFrom rdf:resource="&xsd;integer"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#ReadOnlyMemory -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#ReadOnlyMemory">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#Memory"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#SM -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#SM">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#hardware"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#consistsOf"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#Core"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#SharedMemory -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#SharedMemory">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#Memory"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#TPC -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#TPC">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#hardware"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#consistsOf"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#SM"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#Tesla -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#Tesla">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#GPU"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#TextureMemory -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#TextureMemory">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#Memory"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#blockDim -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#blockDim">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#built-inVariable"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#blockIdx -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#blockIdx">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#built-inVariable"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#built-inVariable -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#built-inVariable">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#CUDA"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#grid -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#grid">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#CUDA"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#organizedInto"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#threadBlock"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#blocksPerGrid"/>
+                <owl:someValuesFrom rdf:resource="&xsd;integer"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#hardware -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#hardware"/>
+    
+
+
+    <!-- http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#hardwareScope -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#hardwareScope">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#scope"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:oneOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#core"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#die"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#tpc"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#sm"/>
+                </owl:oneOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#scope -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#scope"/>
+    
+
+
+    <!-- http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#software -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#software"/>
+    
+
+
+    <!-- http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#softwareScope -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#softwareScope">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#scope"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:oneOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#block"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#warp"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#grid"/>
+                </owl:oneOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#thread -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#thread">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#CUDA"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#software"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#threadBlock -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#threadBlock">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#CUDA"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#hasDimension"/>
+                <owl:someValuesFrom>
+                    <rdfs:Datatype>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdfs:Datatype>
+                                <owl:onDatatype rdf:resource="&xsd;integer"/>
+                                <owl:withRestrictions rdf:parseType="Collection">
+                                    <rdf:Description>
+                                        <xsd:minInclusive rdf:datatype="&xsd;integer">1</xsd:minInclusive>
+                                    </rdf:Description>
+                                </owl:withRestrictions>
+                            </rdfs:Datatype>
+                            <rdfs:Datatype>
+                                <owl:onDatatype rdf:resource="&xsd;integer"/>
+                                <owl:withRestrictions rdf:parseType="Collection">
+                                    <rdf:Description>
+                                        <xsd:maxInclusive rdf:datatype="&xsd;integer">3</xsd:maxInclusive>
+                                    </rdf:Description>
+                                </owl:withRestrictions>
+                            </rdfs:Datatype>
+                        </owl:intersectionOf>
+                    </rdfs:Datatype>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#threadsPerBlock"/>
+                <owl:someValuesFrom>
+                    <rdfs:Datatype>
+                        <owl:onDatatype rdf:resource="&xsd;integer"/>
+                        <owl:withRestrictions rdf:parseType="Collection">
+                            <rdf:Description>
+                                <xsd:maxInclusive rdf:datatype="&xsd;integer">1024</xsd:maxInclusive>
+                            </rdf:Description>
+                        </owl:withRestrictions>
+                    </rdfs:Datatype>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#threadID -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#threadID">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#CUDA"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#threadIdx -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#threadIdx">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#built-inVariable"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#warp -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#warp">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#CUDA"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#L1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#L1">
+        <rdf:type rdf:resource="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#Cache"/>
+        <pieces rdf:datatype="&xsd;integer">1</pieces>
+        <threadsGroup rdf:datatype="&xsd;integer">32</threadsGroup>
+        <hasID rdf:datatype="&xsd;integer">9</hasID>
+        <softwareManageable rdf:datatype="&xsd;boolean">false</softwareManageable>
+        <accessible>rw</accessible>
+        <hasLatency>80 clk</hasLatency>
+        <hasSize>16 K</hasSize>
+        <hasBlockSize>128 B</hasBlockSize>
+        <shareScope rdf:resource="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#sm"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#L2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#L2">
+        <rdf:type rdf:resource="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#Cache"/>
+        <pieces rdf:datatype="&xsd;integer">2</pieces>
+        <threadsGroup rdf:datatype="&xsd;integer">32</threadsGroup>
+        <hasLatency rdf:datatype="&xsd;integer">390</hasLatency>
+        <threadsGroup rdf:datatype="&xsd;integer">4</threadsGroup>
+        <hasID rdf:datatype="&xsd;integer">7</hasID>
+        <softwareManageable rdf:datatype="&xsd;boolean">false</softwareManageable>
+        <accessible>rw</accessible>
+        <hasSize>768 K</hasSize>
+        <hasBlockSize>32 B</hasBlockSize>
+        <hasUpperLevel rdf:resource="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#L1"/>
+        <hasLowerLevel rdf:resource="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#M2075TextureMemory_A"/>
+        <hasLowerLevel rdf:resource="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#M2075TextureMemory_B"/>
+        <hasLowerLevel rdf:resource="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#M2075TextureMemory_C"/>
+        <shareScope rdf:resource="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#die"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#M2075 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#M2075">
+        <rdf:type rdf:resource="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#Tesla"/>
+        <TPCPerDie rdf:datatype="&xsd;integer">16</TPCPerDie>
+        <consistsOf rdf:resource="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#M2075ConstantMemory"/>
+        <consistsOf rdf:resource="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#M2075GlobalMemory"/>
+        <consistsOf rdf:resource="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#M2075Processor"/>
+        <consistsOf rdf:resource="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#M2075ReadOnlyMemory"/>
+        <consistsOf rdf:resource="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#M2075SharedMemory"/>
+        <consistsOf rdf:resource="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#M2075TextureMemory_A"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#M2075ConstantMemory -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#M2075ConstantMemory">
+        <rdf:type rdf:resource="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#ConstantMemory"/>
+        <hasID rdf:datatype="&xsd;integer">1</hasID>
+        <pieces rdf:datatype="&xsd;integer">1</pieces>
+        <threadsGroup rdf:datatype="&xsd;integer">32</threadsGroup>
+        <softwareManageable rdf:datatype="&xsd;boolean">true</softwareManageable>
+        <accessible>r</accessible>
+        <hasLatency>360 clk</hasLatency>
+        <hasSize>64 K</hasSize>
+        <hasUpperLevel rdf:resource="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#cL2"/>
+        <shareScope rdf:resource="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#die"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#M2075GlobalMemory -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#M2075GlobalMemory">
+        <rdf:type rdf:resource="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#GlobalMemory"/>
+        <pieces rdf:datatype="&xsd;integer">1</pieces>
+        <threadsGroup rdf:datatype="&xsd;integer">32</threadsGroup>
+        <hasID rdf:datatype="&xsd;integer">8</hasID>
+        <softwareManageable rdf:datatype="&xsd;boolean">true</softwareManageable>
+        <concurrencyFactor>&lt;0.1 0.5&gt;</concurrencyFactor>
+        <accessible>rw</accessible>
+        <hasLatency>600 clk</hasLatency>
+        <hasBlockSize>128 B</hasBlockSize>
+        <hasSize>5375 M</hasSize>
+        <hasUpperLevel rdf:resource="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#L2"/>
+        <shareScope rdf:resource="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#die"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#M2075Processor -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#M2075Processor">
+        <rdf:type rdf:resource="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#Processor"/>
+        <numberOfDies rdf:datatype="&xsd;integer">1</numberOfDies>
+        <SMPerTPC rdf:datatype="&xsd;integer">1</SMPerTPC>
+        <TPCPerDie rdf:datatype="&xsd;integer">16</TPCPerDie>
+        <CoresPerSM rdf:datatype="&xsd;integer">32</CoresPerSM>
+        <membus rdf:datatype="&xsd;integer">48</membus>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#M2075ReadOnlyMemory -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#M2075ReadOnlyMemory">
+        <rdf:type rdf:resource="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#ReadOnlyMemory"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#M2075SharedMemory -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#M2075SharedMemory">
+        <rdf:type rdf:resource="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#SharedMemory"/>
+        <pieces rdf:datatype="&xsd;integer">1</pieces>
+        <threadsGroup rdf:datatype="&xsd;integer">32</threadsGroup>
+        <banks rdf:datatype="&xsd;integer">32</banks>
+        <hasID rdf:datatype="&xsd;integer">4</hasID>
+        <softwareManageable rdf:datatype="&xsd;boolean">true</softwareManageable>
+        <accessible>rw</accessible>
+        <hasLatency>48 clk</hasLatency>
+        <hasSize>48 K</hasSize>
+        <shareScope rdf:resource="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#sm"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#M2075TextureMemory_A -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#M2075TextureMemory_A">
+        <rdf:type rdf:resource="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#TextureMemory"/>
+        <pieces rdf:datatype="&xsd;integer">1</pieces>
+        <threadsGroup rdf:datatype="&xsd;integer">4</threadsGroup>
+        <hasID rdf:datatype="&xsd;integer">5</hasID>
+        <softwareManageable rdf:datatype="&xsd;boolean">true</softwareManageable>
+        <concurrencyFactor>&lt;0.1 0.5&gt;</concurrencyFactor>
+        <accessible>r</accessible>
+        <hasSize>5375 M</hasSize>
+        <hasLatency>617 clk</hasLatency>
+        <shareScope rdf:resource="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#die"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#M2075TextureMemory_B -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#M2075TextureMemory_B">
+        <rdf:type rdf:resource="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#TextureMemory"/>
+        <hasDimension rdf:datatype="&xsd;integer">1</hasDimension>
+        <hasID rdf:datatype="&xsd;integer">5</hasID>
+        <hasSize>128 ME</hasSize>
+        <hasBlockSize>32 B</hasBlockSize>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#M2075TextureMemory_C -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#M2075TextureMemory_C">
+        <rdf:type rdf:resource="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#TextureMemory"/>
+        <hasDimension rdf:datatype="&xsd;integer">2</hasDimension>
+        <hasSize>&lt;64 KE 64 KE&gt;</hasSize>
+        <hasBlockSize>&lt;16 B 2&gt;</hasBlockSize>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#block -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#block">
+        <rdf:type rdf:resource="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#scope"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#cL1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#cL1">
+        <rdf:type rdf:resource="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#L1_constant"/>
+        <pieces rdf:datatype="&xsd;integer">1</pieces>
+        <hasID rdf:datatype="&xsd;integer">3</hasID>
+        <threadsGroup rdf:datatype="&xsd;integer">32</threadsGroup>
+        <softwareManageable rdf:datatype="&xsd;boolean">false</softwareManageable>
+        <hasLatency>48 clk</hasLatency>
+        <hasBlockSize>64 B</hasBlockSize>
+        <hasSize>4 K</hasSize>
+        <shareScope rdf:resource="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#sm"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#cL2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#cL2">
+        <rdf:type rdf:resource="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#L2_constant"/>
+        <pieces rdf:datatype="&xsd;integer">1</pieces>
+        <hasID rdf:datatype="&xsd;integer">2</hasID>
+        <softwareManageable rdf:datatype="&xsd;boolean">false</softwareManageable>
+        <hasBlockSize>256 B</hasBlockSize>
+        <hasLatency>140 clk</hasLatency>
+        <hasSize>32 K</hasSize>
+        <accessible>r</accessible>
+        <hasUpperLevel rdf:resource="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#cL1"/>
+        <shareScope rdf:resource="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#die"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#core -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#core">
+        <rdf:type rdf:resource="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#scope"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#die -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#die">
+        <rdf:type rdf:resource="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#scope"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#grid -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#grid">
+        <rdf:type rdf:resource="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#scope"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#sm -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#sm">
+        <rdf:type rdf:resource="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#scope"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#tL1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#tL1">
+        <rdf:type rdf:resource="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#L1_texture"/>
+        <hasSize rdf:datatype="&xsd;integer">12</hasSize>
+        <hasLatency rdf:datatype="&xsd;integer">208</hasLatency>
+        <hasID rdf:datatype="&xsd;integer">6</hasID>
+        <softwareManageable rdf:datatype="&xsd;boolean">false</softwareManageable>
+        <accessible>r</accessible>
+        <hasLowerLevel rdf:resource="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#L2"/>
+        <shareScope rdf:resource="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#sm"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#tpc -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#tpc">
+        <rdf:type rdf:resource="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#scope"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#warp -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#warp">
+        <rdf:type rdf:resource="http://www.semanticweb.org/yzhao30/ontologies/2015/3/MSL#scope"/>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.5.0) http://owlapi.sourceforge.net -->
+

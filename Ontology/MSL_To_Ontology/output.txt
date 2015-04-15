@@ -1,0 +1,14 @@
+namedIndividual('die').
+namedIndividual('globalMem').
+namedIndividual('L1').
+namedIndividual('L2').
+namedIndividual('constantMem').
+namedIndividual('cL1').
+namedIndividual('cL2').
+namedIndividual('readonlyMem').
+namedIndividual('sharedMem').
+namedIndividual('tL1').
+namedIndividual('textureMem').
+namedIndividual('textureMem').
+namedIndividual('textureMem').
+namedIndividual('textureMem').
