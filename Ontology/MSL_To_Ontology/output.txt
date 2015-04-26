@@ -1,4 +1,12 @@
+namedIndividual('M2075').
+namedIndividual('M2075Processor').
+namedIndividual('block').
+namedIndividual('core').
 namedIndividual('die').
+namedIndividual('grid').
+namedIndividual('sm').
+namedIndividual('tpc').
+namedIndividual('warp').
 namedIndividual('globalMem').
 namedIndividual('L1').
 namedIndividual('L2').
@@ -12,9 +20,13 @@ namedIndividual('textureMem').
 namedIndividual('textureMem').
 namedIndividual('textureMem').
 namedIndividual('textureMem').
-propertyAssertion('hasID','die',literal(type('http://www.w3.org/2001/XMLSchema#integer','='))).
-propertyAssertion('hasBlockSizeValue','die',literal('1')).
-propertyAssertion('pieces','die',literal(type('http://www.w3.org/2001/XMLSchema#integer','48'))).
+propertyAssertion('consistsOf','M2075','M2075Processor').
+propertyAssertion('numberOfDiesValue','M2075Processor',literal(type('http://www.w3.org/2001/XMLSchema#integer','1'))).
+propertyAssertion('TPCPerDie','M2075Processor',literal(type('http://www.w3.org/2001/XMLSchema#integer','16'))).
+propertyAssertion('SMPerTPC','M2075Processor',literal(type('http://www.w3.org/2001/XMLSchema#integer','1'))).
+propertyAssertion('CoresPerSM','M2075Processor',literal(type('http://www.w3.org/2001/XMLSchema#integer','32'))).
+propertyAssertion('membus','M2075Processor',literal(type('http://www.w3.org/2001/XMLSchema#integer','48'))).
+propertyAssertion('consistsOf','M2075','globalMem').
 propertyAssertion('hasID','globalMem',literal(type('http://www.w3.org/2001/XMLSchema#integer','8'))).
 propertyAssertion('softwareManageable','globalMem',literal(type('http://www.w3.org/2001/XMLSchema#boolean','true'))).
 propertyAssertion('accessible','globalMem',literal(rw)).
@@ -27,6 +39,7 @@ propertyAssertion('hasUpperLevel','L2','L1').
 propertyAssertion('shareScope','globalMem','die').
 propertyAssertion('pieces','globalMem',literal(type('http://www.w3.org/2001/XMLSchema#integer','1'))).
 propertyAssertion('concurrencyFactor','globalMem',literal('<0.1 0.5>')).
+propertyAssertion('consistsOf','M2075','L1').
 propertyAssertion('hasID','L1',literal(type('http://www.w3.org/2001/XMLSchema#integer','9'))).
 propertyAssertion('softwareManageable','L1',literal(type('http://www.w3.org/2001/XMLSchema#boolean','false'))).
 propertyAssertion('accessible','L1',literal(rw)).
@@ -38,6 +51,7 @@ propertyAssertion('hasLowerLevel','L1','L2').
 propertyAssertion('hasLowerLevel','L2','globalMem').
 propertyAssertion('shareScope','L1','sm').
 propertyAssertion('pieces','L1',literal(type('http://www.w3.org/2001/XMLSchema#integer','1'))).
+propertyAssertion('consistsOf','M2075','L2').
 propertyAssertion('hasID','L2',literal(type('http://www.w3.org/2001/XMLSchema#integer','7'))).
 propertyAssertion('softwareManageable','L2',literal(type('http://www.w3.org/2001/XMLSchema#boolean','false'))).
 propertyAssertion('accessible','L2',literal(rw)).
@@ -47,6 +61,7 @@ propertyAssertion('threadsGroup','L2',literal(type('http://www.w3.org/2001/XMLSc
 propertyAssertion('hasLatencyValue','L2',literal('390clk')).
 propertyAssertion('shareScope','L2','die').
 propertyAssertion('pieces','L2',literal(type('http://www.w3.org/2001/XMLSchema#integer','2'))).
+propertyAssertion('consistsOf','M2075','constantMem').
 propertyAssertion('hasID','constantMem',literal(type('http://www.w3.org/2001/XMLSchema#integer','1'))).
 propertyAssertion('softwareManageable','constantMem',literal(type('http://www.w3.org/2001/XMLSchema#boolean','true'))).
 propertyAssertion('accessible','constantMem',literal(r)).
@@ -57,6 +72,7 @@ propertyAssertion('hasUpperLevel','constantMem','cL2').
 propertyAssertion('hasUpperLevel','cL2','cL1').
 propertyAssertion('shareScope','constantMem','die').
 propertyAssertion('pieces','constantMem',literal(type('http://www.w3.org/2001/XMLSchema#integer','1'))).
+propertyAssertion('consistsOf','M2075','cL1').
 propertyAssertion('hasID','cL1',literal(type('http://www.w3.org/2001/XMLSchema#integer','3'))).
 propertyAssertion('softwareManageable','cL1',literal(type('http://www.w3.org/2001/XMLSchema#boolean','false'))).
 propertyAssertion('accessible','cL1',literal(r)).
@@ -68,6 +84,7 @@ propertyAssertion('hasLowerLevel','cL1','cL2').
 propertyAssertion('hasLowerLevel','cL2','constantMem').
 propertyAssertion('shareScope','cL1','sm').
 propertyAssertion('pieces','cL1',literal(type('http://www.w3.org/2001/XMLSchema#integer','1'))).
+propertyAssertion('consistsOf','M2075','cL2').
 propertyAssertion('hasID','cL2',literal(type('http://www.w3.org/2001/XMLSchema#integer','2'))).
 propertyAssertion('softwareManageable','cL2',literal(type('http://www.w3.org/2001/XMLSchema#boolean','false'))).
 propertyAssertion('accessible','cL2',literal(r)).
@@ -79,6 +96,7 @@ propertyAssertion('hasUpperLevel','cL2','cL1').
 propertyAssertion('hasLowerLevel','cL2','constantMem').
 propertyAssertion('shareScope','cL2','die').
 propertyAssertion('pieces','cL2',literal(type('http://www.w3.org/2001/XMLSchema#integer','1'))).
+propertyAssertion('consistsOf','M2075','readonlyMem').
 propertyAssertion('hasID','readonlyMem',literal(type('http://www.w3.org/2001/XMLSchema#integer','11'))).
 propertyAssertion('softwareManageable','readonlyMem',literal(type('http://www.w3.org/2001/XMLSchema#boolean','true'))).
 propertyAssertion('accessible','readonlyMem',literal(r)).
@@ -91,6 +109,7 @@ propertyAssertion('hasUpperLevel','L2','tL1').
 propertyAssertion('shareScope','readonlyMem','die').
 propertyAssertion('pieces','readonlyMem',literal(type('http://www.w3.org/2001/XMLSchema#integer','1'))).
 propertyAssertion('concurrencyFactor','readonlyMem',literal('<0.1 0.5>')).
+propertyAssertion('consistsOf','M2075','sharedMem').
 propertyAssertion('hasID','sharedMem',literal(type('http://www.w3.org/2001/XMLSchema#integer','4'))).
 propertyAssertion('softwareManageable','sharedMem',literal(type('http://www.w3.org/2001/XMLSchema#boolean','true'))).
 propertyAssertion('accessible','sharedMem',literal(rw)).
@@ -100,6 +119,7 @@ propertyAssertion('banks','sharedMem',literal(type('http://www.w3.org/2001/XMLSc
 propertyAssertion('hasLatencyValue','sharedMem',literal('48clk')).
 propertyAssertion('shareScope','sharedMem','sm').
 propertyAssertion('pieces','sharedMem',literal(type('http://www.w3.org/2001/XMLSchema#integer','1'))).
+propertyAssertion('consistsOf','M2075','tL1').
 propertyAssertion('hasID','tL1',literal(type('http://www.w3.org/2001/XMLSchema#integer','6'))).
 propertyAssertion('softwareManageable','tL1',literal(type('http://www.w3.org/2001/XMLSchema#boolean','false'))).
 propertyAssertion('accessible','tL1',literal(r)).
@@ -111,6 +131,7 @@ propertyAssertion('hasLowerLevel','tL1','L2').
 propertyAssertion('hasLowerLevel','L2','textureMem').
 propertyAssertion('shareScope','tL1','sm').
 propertyAssertion('pieces','tL1',literal(type('http://www.w3.org/2001/XMLSchema#integer','1'))).
+propertyAssertion('consistsOf','M2075','textureMem').
 propertyAssertion('hasID','textureMem',literal(type('http://www.w3.org/2001/XMLSchema#integer','5'))).
 propertyAssertion('softwareManageable','textureMem',literal(type('http://www.w3.org/2001/XMLSchema#boolean','true'))).
 propertyAssertion('accessible','textureMem',literal(r)).
@@ -122,15 +143,40 @@ propertyAssertion('hasUpperLevel','L2','tL1').
 propertyAssertion('shareScope','textureMem','die').
 propertyAssertion('pieces','textureMem',literal(type('http://www.w3.org/2001/XMLSchema#integer','1'))).
 propertyAssertion('concurrencyFactor','textureMem',literal('<0.1 0.5>')).
+propertyAssertion('consistsOf','M2075','textureMem').
 propertyAssertion('hasID','textureMem',literal(type('http://www.w3.org/2001/XMLSchema#integer','5'))).
 propertyAssertion('hasDimension','textureMem',literal(type('http://www.w3.org/2001/XMLSchema#integer','1'))).
 propertyAssertion('hasSizeValue','textureMem',literal('128ME')).
 propertyAssertion('hasBlockSizeValue','textureMem',literal('32B')).
+propertyAssertion('consistsOf','M2075','textureMem').
 propertyAssertion('hasID','textureMem',literal(type('http://www.w3.org/2001/XMLSchema#integer','5'))).
 propertyAssertion('hasDimension','textureMem',literal(type('http://www.w3.org/2001/XMLSchema#integer','2'))).
 propertyAssertion('hasSizeValue','textureMem',literal('<64KE 64KE>')).
 propertyAssertion('hasBlockSizeValue','textureMem',literal('<16B 2>')).
+propertyAssertion('consistsOf','M2075','textureMem').
 propertyAssertion('hasID','textureMem',literal(type('http://www.w3.org/2001/XMLSchema#integer','5'))).
 propertyAssertion('hasDimension','textureMem',literal(type('http://www.w3.org/2001/XMLSchema#integer','2'))).
 propertyAssertion('hasSizeValue','textureMem',literal('<64KE 64KE>')).
 propertyAssertion('hasBlockSizeValue','textureMem',literal('<16B 2>')).
+classAssertion('Tesla','M2075').
+classAssertion('Processor','M2075Processor').
+classAssertion('scope','block').
+classAssertion('scope','core').
+classAssertion('scope','die').
+classAssertion('scope','grid').
+classAssertion('scope','sm').
+classAssertion('scope','tpc').
+classAssertion('scope','warp').
+classAssertion('GlobalMemory','M2075globalMem').
+classAssertion('Cache','L1').
+classAssertion('Cache','L2').
+classAssertion('ConstantMemory','M2075constantMem').
+classAssertion('L1_constant','cL1').
+classAssertion('L2_constant','cL2').
+classAssertion('ReadOnlyMemory','M2075readonlyMem').
+classAssertion('SharedMemory','M2075sharedMem').
+classAssertion('L1_texture','tL1').
+classAssertion('TextureMemory','M2075textureMem').
+classAssertion('TextureMemory','M2075textureMem').
+classAssertion('TextureMemory','M2075textureMem').
+classAssertion('TextureMemory','M2075textureMem').

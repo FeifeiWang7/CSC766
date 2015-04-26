@@ -1,4 +1,4 @@
-die = 16 tpc; tpc = 1 sm; sm =32 cores; membus = 48 bytes;
+die = 16 tpc; tpc = 1 sm; sm = 32 cores; membus = 48 bytes;
 globalMem 8 Y rw na 5375M 128B 32 ? 600clk <L2 L1> <> die 1 <0.1 0.5> warp{address1/blockSize!=address2/blockSize};
 L1 9 N rw na 16K 128B 32 ? 80clk <> <L2 globalMem> sm 1 ? warp{address1/blockSize!= address2/blockSize};
 L2 7 N rw na 768K 32B <32|4> ? 390clk om om die 2 ? warp{ thread1/<32|4>!=thread2/<32|4> || address1/blockSize != address2/blockSize }; //address1 and address2 are the transformed addresses in L2
