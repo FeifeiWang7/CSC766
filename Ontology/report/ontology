@@ -1,0 +1,22 @@
+what is an ontology?
+An ontology defines a common vocabulary and a shared understanding. It is an explicit description of a domain's concept, properties and attributes of concepts, constraints on properties and attributes, and individuals.
+
+Onotlogy Engineering: Defining terms in the domain and relations among them
+
+why develop ontology?
+To share common understanding of the structure of information among ...
+To enable reuse of domain knowledge ( to avoid re-inventing the wheel, and to introduce standards to allow interoperability).
+
+An ontology reflects the structure of the world, is often about structure of concepts, actual physical representation is not an issue.
+
+how to develop an ontology?
+defining concepts in the domain (classes)
+arranging the concepts in a hierarchy (subclass-superclass hierarchy) -- I don't have this in project
+Defining which attributes and properties (slots) classes can have and constraints on their values
+Defining individuals and filling in slot values
+
+
+
+
+
+http://protege.stanford.edu/publications/ontology_development/ontology101.html
