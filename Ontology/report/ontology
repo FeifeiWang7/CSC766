@@ -15,8 +15,13 @@ arranging the concepts in a hierarchy (subclass-superclass hierarchy) -- I don't
 Defining which attributes and properties (slots) classes can have and constraints on their values
 Defining individuals and filling in slot values
 
+what is the domain that the ontology will cover? for what we are going to use the ontology? for what types of questions the information in the ontology should provide answers?
+which characteristics should I consider when choosing ...?
+what are the terms we need to talk about?
+what are the properties of these terms?
+what do we want to say about the terms?
 
-test
+enumerat terms... define classes and the class hierarchy... define properties of classes ... valuetype .. value...
 
 
 
