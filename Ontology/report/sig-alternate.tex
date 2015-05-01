@@ -19,7 +19,9 @@ Xipeng Shen\\
 }
 \maketitle
 \begin{abstract}
-Ontology is ... (benefit)...In this project, I ... for the purpose of ...
+Data placement is important for the performance of a GPU (Graphic Processing Unit) program. However, finding suitable data placement is becoming increasingly hard because of the growing complexity of memory systems and the sensitivity of data access patterns related to input. A more general, extensible, and reusable modeling for the memory systems and data access pattern is needed to achieve better performance.
+
+This paper introduces Ontology, a general-purpose modeling for knowledge resources, to build general, extensible, and reusable knowledge bases to systematically and formally represent and reuse knowledge about GPU memory systems and data access patterns. In particular, this paper presents two work. The first work is to ... The second work is to ... With the work, XX would benefit from ...
 \end{abstract}
 
 \terms{Compiler}
@@ -27,9 +29,110 @@ Ontology is ... (benefit)...In this project, I ... for the purpose of ...
 \keywords{Compiler, Ontology, ...}
 
 \section{Introduction}
-Ontology \cite{ontology1, ontology2} is .. knowledge resources.. provide mutual understanding ... 
+Data placement is essential for the performance of a GPU (Graphic Processing Unit) program \cite{intro1}. Where to place the data is based on two factors. One is the memory systems of GPU, the other one is the data access pattern associated with the input to the programs. The memory systems of GPU (Graphic Processing Unit) are becoming increasingly complex. For example, on an NVIDIA Kepler device, there are more than eight types of memory (including caches). These memory have different sizes, properties, and access constraints. Also, the suitable placements differ across the program inputs, making the placement even more difficult to do.
+
+There have been some efforts to address the data placement problem. Chen and et al. \cite{porple} present PORPLE, a portable data placement engine that can leverages the hardware information, uses the runtime profiling to decide the data access patterns, to identify on the fly appropriate placement schemes for data and places them accordingly. 
+
+Various techniques for building computerized knowledge bases have been developed for different types of knowledge \cite{intro2}. For example, first-order logic is often used to represent factual knowledge, including production rules. Recently, ontolgy-based knowledge bases are gaining increasing ppularity in multiple fields including biology and robotics. An ontology is a formal specification for explicitly representing knowledge about types, properties, and interrelationships of the entities in a domain. It provides common vacabulary to represent and share domain concepts. compared to tree-like taxonomy solely modeling the generalization-specialization relation, an ontology can form a much more eomplex graph with edges to model any kinds of relationships between entities (represented as graph nodes).
+
+Web Ontology Language (OWL) \cite{owl1, owl2} is a commonly used knowledge representation for storing description logic formulas in an XML-based file format.
+
+The adaptation of OWL and its associated tool set has shown promosing successful stories in some research fields. For example, ...
+
+\section{Motivation}
+
+\section{Methodology}
+
+It adapts to inputs and memory systems; it allows easy extension to new memory systems; it requires no offline training; in most cases, it optimizes data placement transparently with no need for manual code modification.
+
+PORPLE has three advantages. 
+extensibility- GPU architecture changes rapidly, and every generation manifests some substantial changes in the memory system design. For a solution to have its lasting values, it must be easy to extend to cover a new memory system. 
+Our solution features MSL (memory specification language), a carefully designed small specification language. MSL provides a simple, uniform way to specify a type of memory and its relations with other pieces of memory in a system. GPU memory has various special properties: Accesses to global memory could get coalesced, accesses to texture memory could come with a 2-D locality, accesses to shared memory could suffer from bank conflicts, accesses to constant memory could get broadcast, and so on. (use list to occupy more space. :D)
+
+Second, the solution should be input-adaptive. Different inputs to a program could differ in size and trigger different data access patterns, and hence demand different data placement. Since program inputs are not known until runtime, the data placement optimizer should be able to work on the fly, which entails two requirements. 
+
+Third, the solution should have a good generality. Data placement is important for both regular and irregular GPU programs. A good solution to the data placement problem hence should be applicable to both kinds of programs.  
+ 
+Ontology \cite{ontology1, ontology2} is a general-purpose modeling for knowledge resources. It uses precise descriptive statements about knowledge of some domain. It is designed to represent rich and complex knowledge about things, groups of things, and relations between things... provide mutual understanding ... 
+
+Different ontology languages provide different facilities. The most recent development in standard ontology languages is OWL from the W3C. (W3C OWL 2 Web Ontology Language)
+OWL is a computational logic-based language to express ontologies. Knowledge expressed in OWL can be reasoned with by programs either 1. to verify the consistency of that knowledge or 2. to make implicit knowledge explicit.
+
+
+
+
+
+An important feature of PORPLE is its capability to be easily extended to cover new memory systems. We achieve this feature by MSL. In this section, we first present the design of MSL, and then describe a high-level interface to enable easy creation of MSL specifications.
+
+A. MSL
+MSL is a small language designed to provide an interface for compilers to understand a memory system.
+
+Figure 2 shows its keywords, operators, and syntax written in BackusNaur Form (BNF). An MSL specification contains one entry for processor and a list of entries for memory. We call each entry a spec in our discussion. The processor entry shows the composition of a die, a TPC (thread processing cluster), and an SM.
+
+Each memory spec corresponds to one type of memory, indicating the name of the memory (started with letters) and a unique ID (in numbers) for the memory. The name and ID could be used interchangeably; having both is for conveniences. The field “swmng” is for indicating whether the memory is software manageable. The data placement engine can explicitly put a data array onto a software manageable memory (versus hardware managed cache for instance). The field “rw” indicates whether a GPU kernel can read or write the memory. The field “dim”, if it is not “?“, indicates that the spec entry is applicable only when the array dimensionality equals to the value of “dim”. We will use an example to further explain it later. The field after “dim” indicates memory size. Because a GPU memory typically consists of a number of equal-sized blocks or banks, “blockSize” (which could be multi-dimensional) and the number of banks are next two fields in a spec. The next field afterwards describes memory access latency. To accommodate access latency difference between read and write operations, the spec allows the use of a tuple to indicate both. We use “upperLevels” and “lowerLevels” to indicate memory hierarchy; they contain the names or IDs of the memories that sit above (i.e., closer to computing units) or blow the memory of interest. The “shareScope” field indicates in what scope the memory is shared. For instance, “sm” means that a piece of the memory is shared by all cores on a streaming multiprocessor. The “concurrency Factor” is a field that indicates parallel transactions a memory (e.g., global memory and texture memory) may support for a GPU kernel. Its inverse is the average number of memory transactions that are serviced concurrently for a GPU kernel. As shown in previous studies [11], such a factor depends on not only memory organization and architecture, but also kernel characterization. MSL broadly characterizes GPU kernels into compute-intensive and memory-intensive, and allows the “concurrencyFactor” field to be a tuple containing two elements, respectively corresponding to the values for memory-intensive and compute-intensive kernels. We provide more explanation of “concurrencyFactor” through an example later in this section, and explain how it is used in the next section.
+
+GPU memories often have some special properties. For instance, shared memory has an important feature called bank conflict: When two accesses to the same bank of shared memory happen, they have to be served serially. But on the other hand, for global memory, two accesses by the same warp could be coalesced into one memory transaction if their target memory addresses belong to the same segment. While for texture memory, accesses can benefit from 2-D locality. Constant memory has a much stricter requirement: The accesses must be to the same address, otherwise, they have to be fetched one after one.
+
+How to allow a simple expression of all these various properties is a challenge for the design of MSL. We address it based on an insight that all these special constraints are essentially about the conditions for multiple concurrent accesses to a memory to get serialized. Accordingly, MSL introduces a field “serialCondition” that allows the usage of simple logical expressions to express all those special properties. Figure 3 shows example expressions for some types of GPU memory. Such an expression must start with a keyword indicating whether the condition is about two accesses by threads in a warp or a thread block or a grid, which is followed with a relational expression on the two addresses. It also uses some keywords to represent data accessed by two threads: index1 and index2 stand for two indices of elements in an array, address1 and address2 for addresses, and word1 and word2 for the starting addresses of the corresponding words (by default, a word is 4-byte long). For instance, the expression for shared memory, “block{word1≠ word2 && word1 %banks=word2%banks}”, claims that when the words accessed by two threads in the same thread block are different and fall onto the same bank (which is a bank conflict), the two accesses get serialized. The expression for constant memory claims that if two threads in a warp access the same address, one memory transaction is enough (because of the broadcasting mechanism of constant memory); they however get serialized otherwise. This simple way of expression makes it possible for other components of PORPLE to easily leverage the features of the various memory to find good data placements, which will be discussed in the next section.
+
+B. Example
+To better explain how MSL offers a flexible and systematic way to describe a memory system, we show part of the MSL specification of the Tesla M2075 GPU in Figure 4 as an example. We highlight two points. First, there are three special tokens in MSL: the question mark “?” indicating that the information is unavailable, the token “om” indicating that the information is omitted because it appears in some other entries, the token “na” indicating that the field is not applicable to the entry. For instance, the L2 spec has a “?” in its banks field meaning that the user is unclear about the number of banks in L2. PORPLE has some default value predefined for each field that allows the usage of “?” for unknowns (e.g., 1 for the concurrencyFactor field); PORPLE uses these default values for the unknown cases. The L2 spec has “om” in its upperLevels and lowerLevels fields. This is because the information is already provided in other specs. The L2 spec has “na” in its dim field, which claims that no dimension constraint applies to the L2 spec. In other words, the spec is applicable regardless of the dimensionality of the data to be accessed on L2.
+
+Second, some memory can manifest different properties, depending on the dimensionality of the data array allocated on the memory. An example is texture memory. Its size limitation, block size, and serialization condition all depend on the dimensionality of the array. To accommodate such cases, an MSL spec has a field “dim”, which specifies the dimensionality that the spec is about. As mentioned earlier, if it is “na”, that spec applies regardless of the dimensionality. There can be multiple specs for one memory that have the same name and ID, but differ in the “dim” and other fields.
+
+In this example, the concurrency factors of global and texture memory are set to 0.1 for memory-intensive GPU kernels and 0.5 for compute-intensive GPU kernels. They are determined based on a prior study on GPU memory performance modeling [11]. To determine a kernel is compute or memory intensive, we measure the I PCduring the profiling phase by checking performance counters (explained in Section VI). A kernel with I PC smaller than 2 is treated as memory-intensive, and compute-intensive otherwise.
+
+MSL simplifies porting of GPU programs. For a new GPU, given the MSL specification for its memory system, the PROPLE placer could help determine the appropriate data placements accordingly. 
+(don't forget figures)
+
+introduce the data access pattern here...
+
+
+
+Components of OWL 
+
+Ontologies
+
+Individuals represent objects in the domain in which we are interested
+Properties are binary relations3 that link two individuals together
+Classes are used to model abstract knowledge for grouping objects with similar characteristics.
+
+Classes can be organized into superclass-subclass hierarchy and they are described or defined by the relationships that individuals participate in.
+
+\begin{table*}
+
+\centering
+
+\caption{Correctness for All the Questions}
+
+\begin{tabular}{|l|l|} \hline
+
+% & \multicolumn{4}{l|}{forward questions} & \multicolumn{4}{l|}{backward questions} & \multicolumn{4}{l|}{same-different questions}\\ \hline
+
+Classes and Instances&ClassAssertion()\\ \hline
+Class Hierarchies&SubClassOf()\\ \hline
+Object Properties&ObjectPropertyAssertion()\\ \hline
+Property Hierarchies&SubObjectPropertyOf()\\ \hline
+Datatypes&DataPropertyAssertion()\\ \hline
+\end{tabular}
+\label{table:accuracy}
+\end{table*}
+
+GPU data placement
+
+Model MSL (Memory Specification for Extensibility) - translate grammar-based rules into ontologies
+
+Modeling and matching memory access patterns - static program analysis of CUDA program, online profile is possible by embedding OWL reasoning engines 
+
+reference: “OWL 2 Web Ontology Language Primer (Second Edition).” Accessed March 21, 2015. http://www.w3.org/TR/2012/REC-owl2-primer-20121211 
+
+A Practical Guide To Building OWL Ontologies Using Protege 4 and CO-ODE Tools Edition 1.3 
+
+http://www.semanticweb.gr/thea/
 
 \section{Related Work}
+PORPLE contains three key components: a specification language MSL for providing memory specifications, a compiler PORPLE-C for revealing the data access patterns of the program and staging the code for runtime adaptation, and an online data placement engine Placer that consumes the specifications and access patterns to find the best data placements at runtime. These components are designed to equip PORPLE with a good extensibility, applicability, and runtime efficiency. Together they make it possible for PORPLE to cover a variety of memory, handle both regular and irregular programs, and optimize data placement on memory on the fly.
+
 Ontology is widely used. A lot of work has been done. Moor et al. \cite{ontology3} and Leenheer et al. \cite{ontology4} focus on community-based evolution of knowledge-intensive systems with Ontology.
 
 A lot of work has been done by the Semantic Web community on formalizing, reasoning and querying ontologies.(!!!)
