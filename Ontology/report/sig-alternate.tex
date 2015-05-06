@@ -6,12 +6,16 @@
 \title{Ontology-based Knowledge Representation for PORPLE}
 \subtitle{[CSC766 Final Report]}
 
-\numberofauthors{2}
+\numberofauthors{3}
 \author{
 \alignauthor
 Feifei Wang\\
        \affaddr{North Carolina State University}\\
        \email{fwang12@ncsu.edu}
+\alignauthor
+Yue Zhao\\
+       \affaddr{North Carolina State University}\\
+       \email{yzhao30@ncsu.edu}
 \alignauthor
 Xipeng Shen\\
        \affaddr{North Carolina State University}\\
@@ -19,15 +23,10 @@ Xipeng Shen\\
 }
 \maketitle
 \begin{abstract}
-Data placement is important for the performance of a GPU (Graphic Processing Unit) program. There are many techniques proposed to solve the data placement problem. Among them, PORPLE is a representative one. PORPLE uses memory specification language (MSL) to describe hardware information (mainly memory systems and processors), and data access patterns gathered from a compiler called PORPLE-C to gather software informaion. 
+Data placement is important for the performance of a GPU (Graphic Processing Unit) program. However, where to place the data is a complex decision for a programmer to make. Among the recent techniques in solving data placement problem, PORPLE is a representative one. PORPLE is a portable data placement engine that uses hardware information (mainly memory systems and processors) described by memory specification language (MSL) and software information (data access patterns) gathered from a compiler called PORPLE-C. Because of the two different representations, it is hard to share common understanding of the program, and reuse information. Providing a more general, uniform and reusable representation can make data replacement decisions more efficient, interoperable and reusable.
 
-To retrieve information, it would be beneficial to use a more general, uniform, extensible, and reusabl ... representation.
-
-Use ontology to systematically and formally represent and reuse knowledge about GPU memory systems and data access patterns.
+In this paper, we apply ontology-based techniques to systematically and formally represent both hardware information and software information used by PORPLE hoping to achieve efficiency, interoperability and reusability. Specifically, we transform the information of GPU memory systems and processors, and the data access patterns gathered by PROPLE-C by using Web Ontology Language (OWL) which can be used by PORPLE for data replacement.
  
-because of the growing complexity of memory systems and the sensitivity of data access patterns related to input. A more general, extensible, and reusable modeling for the memory systems and data access pattern is needed to achieve better performance.
-
-This paper introduces Ontology, a general-purpose modeling for knowledge resources, to build general, extensible, and reusable knowledge bases to systematically and formally represent and reuse knowledge about GPU memory systems and data access patterns. In particular, this paper presents two work. The first work is to ... The second work is to ... With the work, XX would benefit from ...
 \end{abstract}
 
 \terms{Compiler}
@@ -35,19 +34,41 @@ This paper introduces Ontology, a general-purpose modeling for knowledge resourc
 \keywords{Compiler, Ontology, ...}
 
 \section{Introduction}
-Data placement is essential for the performance of a GPU (Graphic Processing Unit) program \cite{intro1}. Where to place the data is based on two factors. One is the memory systems of GPU, the other one is the data access pattern associated with the input to the programs. The memory systems of GPU (Graphic Processing Unit) are becoming increasingly complex. For example, on an NVIDIA Kepler device, there are more than eight types of memory (including caches). These memory have different sizes, properties, and access constraints. Also, the suitable placements differ across the program inputs, making the placement even more difficult to do.
+Data placement is essential for the performance of a GPU (Graphic Processing Unit) program \cite{intro1}. However, where to place the data is based on two factors. One is the memory systems of GPU, the other one is the data access pattern associated with the input to the programs. The memory systems of GPU (Graphic Processing Unit) are becoming increasingly complex. For example, on an NVIDIA Kepler device, there are more than eight types of memory (including caches). These memory have different sizes, properties, and access constraints. Also, the suitable placements differ across the program inputs, making the placement even more difficult to do.
 
-There have been some efforts to address the data placement problem. Chen and et al. \cite{porple} present PORPLE, a portable data placement engine that can leverages the hardware information, uses the runtime profiling to decide the data access patterns, to identify on the fly appropriate placement schemes for data and places them accordingly. 
+There have been some efforts to address the data placement problem. Chen and et al. \cite{porple} present PORPLE, a portable data placement engine that can leverages the hardware information, uses the runtime profiling to decide the data access patterns, to identify on the fly appropriate placement schemes for data and places them accordingly. xx (related work of PORPLE). One common characteristic of these work is that they require hardware information (GPU memory systems) and software information (data access patterns) to some extent. For example, PORPLE uses memory specification language (MSL) to describe hardware information (mainly memory systems and processors), and data access patterns gathered from a compiler called PORPLE-C to gather software informaion. To fetch these information, PORPLE needs to implement two different types of representation and ... To retrieve information, it would be beneficial to use a more general, uniform, extensible, and reusabl ... representation. 
 
-Various techniques for building computerized knowledge bases have been developed for different types of knowledge \cite{intro2}. For example, first-order logic is often used to represent factual knowledge, including production rules. Recently, ontolgy-based knowledge bases are gaining increasing ppularity in multiple fields including biology and robotics. An ontology is a formal specification for explicitly representing knowledge about types, properties, and interrelationships of the entities in a domain. It provides common vacabulary to represent and share domain concepts. compared to tree-like taxonomy solely modeling the generalization-specialization relation, an ontology can form a much more eomplex graph with edges to model any kinds of relationships between entities (represented as graph nodes).
+In this paper, we use Use ontology to systematically and formally represent and reuse knowledge about GPU memory systems and data access patterns for PORPLE. Various techniques for building computerized knowledge bases have been developed for different types of knowledge \cite{intro2}. For example, first-order logic is often used to represent factual knowledge, including production rules. Recently, ontolgy-based knowledge bases are gaining increasing ppularity in multiple fields including biology and robotics. An ontology is a formal specification for explicitly representing knowledge about types, properties, and interrelationships of the entities in a domain. It provides common vacabulary to represent and share domain concepts. compared to tree-like taxonomy solely modeling the generalization-specialization relation, an ontology can form a much more eomplex graph with edges to model any kinds of relationships between entities (represented as graph nodes). It has the benefit ... By using Ontology for PORPLE as an example, potential benefit other GPU related works.
+
 
 Web Ontology Language (OWL) \cite{owl1, owl2} is a commonly used knowledge representation for storing description logic formulas in an XML-based file format.
 
 The adaptation of OWL and its associated tool set has shown promosing successful stories in some research fields. For example, ...
 
+This paper is organized as follows. In Section , we present the motivation. Section introduces ... Section xx Section present related ... Section concludes this paper.
+
+This paper introduces Ontology, a general-purpose modeling for knowledge resources, to build general, extensible, and reusable knowledge bases to systematically and formally represent and reuse knowledge about GPU memory systems and data access patterns. In particular, this paper presents two work. The first work is to ... The second work is to ... With the work, XX would benefit from ...
+
 \section{Motivation}
+This work is motivated by an observation that PORPLE uses two different patterns for hardware information and software information.
+
+This work is also motivated by some previous work of using Ontology to systematically and formally accumulate, represent, reuse, and manipulate knowledge about software, hardwar,e aoptimizations and so on.... For example, OpenK \cite{OpenK} adapts ontology-based techniques for building open, extensible, and reusable knowledge bases to systematically and formally accumulate, represent, reuse, and manipulate knowledge about HPC software, hardware, optimizations and so on.
+
+\section{Challenge, Solution and Lessons}
+The main challenge I encountered is to understand ontology, and I use .. to solve .. The lessons I learned ...
+
+\subsection{Challenge}
+
+\subsection{Solution}
+
+\subsection{Lessons}
 
 \section{Methodology}
+
+\section{Results}
+
+\section{Conclusion and Future Work}
+
 
 It adapts to inputs and memory systems; it allows easy extension to new memory systems; it requires no offline training; in most cases, it optimizes data placement transparently with no need for manual code modification.
 
