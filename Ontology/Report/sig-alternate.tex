@@ -66,56 +66,39 @@ This work is also motivated by the success of some previous work of using ontolo
 \end{figure}
 
 \section{Challenge, Solution and Lesson}
-Transforming MSL and data access patterns used by PORPLE to ontolgoy is quite straightforward. The main challenge is to understand ontology. In this section, we introduce the challenge to understand ontology, how we overcome them, and the lessons we learned.
+Transforming MSL and data access patterns used by PORPLE to ontolgoy is quite straightforward. We don't have many challenges. The main challenge is to understand ontology. In this section, we introduce the challenge to understand ontology, how we overcome them, and the lessons we learned.
 
 \subsection{Challenge}
 Ontologies have three parts: individuals, properties and classes \cite{what1}. Individuals are objects in the domain in which we are interested. Properties represent binary relations between two individuals. Objects with similar characteristics are grouped by classes. In this part we use \ref{fig:msl} as an example to illustrate the challenges. 
 
-The individual part is related easy to understand. We just use 
+For the individual part, the challenge is to use unique namedIndividual for each type of memory system. For example, in the MSL for Tesla M2075, although there are four textureMems, we cannot use the same name \texttt{textureMem} for all of them. We need to make sure that every namedIndividual is unique.
 
-Each object property may have a corresponding inverse property. If some property links individual a to individual b then its inverse property will link individual b to individual a. For example, Figure 4.16 shows the property hasParent and its inverse property hasChild — if Matthew hasParent Jean, then because of the inverse property we can infer that Jean hasChild Matthew.
+For the property part, the challenge is that we need to consider inverse property. Inverse property means that if a property links individual a to individual b then its inverse property will link individual b to individual a \cite{what1}. For example, if globalMem has an upper level that is L2, then L2 should have a lower layer that is globalMem. 
 
-Datatype properties describe relationships between individuals and data values. Object properties describe relationships between two individuals.
-Datatype properties link an individual to an XML Schema Datatype value or an rdf literal. In other words, they describe relationships between an individual and data values. 
+For the class part, the challenge is to consider some characteristics that is not so obvious. For example, L1 is a sub-class of Cache is obvious. However, we need to consider that M2075 is a sub-class of Tesla, and M2075Processor is a sub-class of Processor.
 
-OWL allows us to define individuals and to assert properties about them. Individuals can also be used in class descriptions, namely in hasValue restrictions and enumerated classes which will be explained in section 7.2 and section 7.3 respectively. To create individuals in Prot ́eg ́e 4 the ‘Individuals Tab’ is used.
-Suppose we wanted to describe the country of origin of various pizza toppings. We would first need to add various ‘countries’ to our ontology. Countries, for example, ‘England’, ‘Italy’, ‘America’, are typically thought of as being individuals (it would be incorrect to have a class England for example, as it’s members would be deemed to be, ‘things that are instances of England’). To create this in our Pizza Ontology we
+\subsection{Solution}
+Our solution is to use Protege \cite{protege} to generate ontology files, and then learn from those generated files. By learning from Protege, we learn to define classes and arrange them in a hierarchy (sub-class hierarchy). We consider Tesla, M2075, Processor, scope, GlobalMemory, ConstantMemory, TextureMemory, Cache and etc. We also learn to define the properties that should be assigned to each class and give them values. We also learn to define individuals.
 
+\subsection{Lesson}
+The lesson is that when creating ontology, we must think comprehensively.
 
-OWL object property characteristics:
-If a property is functional, for a given individual, there can be at most one individual that is related to the individual via the property. 
-If a property is inverse functional then it means that the inverse property is functional. 
-If a property is transitive, and the property relates individual a to individual b, and also individual b to individual c, then we can infer that individual a is related to individual c via property P. 
-If a property P is symmetric, and the property relates individual a to individual b then individual b is also related to individual a via property P.
-If a property P is asymmetric, and the property relates individual a to individual b then individual b cannot be related to individual a via property P. 
-Reflexive properties
-Irreflexive properties
+\section{Implementation}
+We have designed two implementations for MSL and data access patterns. We first introduce the implementation for MSL in detail, and then describe the implementation for data access patterns.
 
-Properties may have a domain and a range specified. Properties link individuals from the domain to individuals from the range. 
+\subsection{MSL}
+When transforming MSL to ontology, we create individuals and then enumerate properties about them, and assert class descriptions about them.
 
+We first need to add various type of memory systems� to our ontology. For example, globalMem, constantMem, sharedMem, are regarded as individuals. We use namedIndividuals since they are given an explicit name that can be used in any ontology to refer to the same object. 
 
+We then enumerate the properties of individuals. By parsing the input file, we can get the information we need to create properties. We use two kinds of properties. (item?) One is called the ObjectPropertyAssertion that allows one to state that an individual is connected by an object property expression to an individualIn. The other one is called the DataPropertyAssertion axiom allows one to state that an individual is connected by a data property expression to a literal. In MSL, we can get information about ObjectPropertyAssertion such as ... Also, we can get information about DataPropertyAssertion such as ...
 
-how to develop an ontology?
-defining concepts in the domain (classes)
-arranging the concepts in a hierarchy (subclass-superclass hierarchy) -- I don't have this in project
-Defining which attributes and properties (slots) classes can have and constraints on their values
-Defining individuals and filling in slot values
+In the end, we define sub-class hierarchy to state that an individual is an instance of a particular class.
 
-what is the domain that the ontology will cover? for what we are going to use the ontology? for what types of questions the information in the ontology should provide answers?
-which characteristics should I consider when choosing ...?
-what are the terms we need to talk about?
-what are the properties of these terms?
-what do we want to say about the terms?
+\subsection{Data Access Patterns}
+Transforming data access patterns to ontology is quite easy since the semantics of data access patterns is simple. We only need to create ....and for each number not begins with 9 (designed by Chen et al. \cite{porple}) ... We should note that we use - to get off-chip memory access times.
 
-enumerat terms... define classes and the class hierarchy... define properties of classes ... valuetype .. value...
-The ClassAssertion axiom allows one to state that an individual is an instance of a particular class.
-The ObjectPropertyAssertion axiom allows one to state that an individual is connected by an object property expression to an individual
-The DataPropertyAssertion axiom allows one to state that an individual is connected by a data property expression to a literal
-
-Individuals in the OWL 2 syntax represent actual objects from the domain. There are two types of individuals in the syntax of OWL 2. Named individuals are given an explicit name that can be used in any ontology to refer to the same object. Anonymous individuals do not have a global name and are thus local to the ontology they are contained in.
-
-
-The sentence "The individual I is an instance of the class C" can be understood as a statement that I is an instance of the UML class Individual, C is an instance of the UML class Class, and there is an instance of the UML class ClassAssertion that connects I with C. This statement can be captured precisely using the structural specification as ClassAssertion( C I ).
+\section{Results}
 
 The individual a:Peter can be used to represent a particular person. It can be used in axioms such as the following one:
 
@@ -128,66 +111,19 @@ bjectPropertyAssertion( a:hasBrother a:Chris a:Stewie )	Stewie is a brother of C
 
 http://protege.stanford.edu/publications/ontology_development/ontology101.html
 
-\subsection{Solution}
-
-\subsection{Lessons}
-
-\section{Methodology}
-
-\section{Results}
-
 \section{Conclusion and Future Work}
-
-
-
 
 Classes can be organized into superclass-subclass hierarchy and they are described or defined by the relationships that individuals participate in.
 
-\begin{table*}
-
-\centering
-
-\caption{Correctness for All the Questions}
-
-\begin{tabular}{|l|l|} \hline
-
-% & \multicolumn{4}{l|}{forward questions} & \multicolumn{4}{l|}{backward questions} & \multicolumn{4}{l|}{same-different questions}\\ \hline
-
-Classes and Instances&ClassAssertion()\\ \hline
-Class Hierarchies&SubClassOf()\\ \hline
-Object Properties&ObjectPropertyAssertion()\\ \hline
-Property Hierarchies&SubObjectPropertyOf()\\ \hline
-Datatypes&DataPropertyAssertion()\\ \hline
-\end{tabular}
-\label{table:accuracy}
-\end{table*}
 
 \section{Acknowledgments}
 This section is optional; it is a location for you
-to acknowledge grants, funding, editing assistance and
-what have you.  In the present case, for example, the
-authors would like to thank Gerald Murray of ACM for
-his help in codifying this \textit{Author's Guide}
-and the \textbf{.cls} and \textbf{.tex} files that it describes.
-
+to acknowledge grants, funding, editing assistance an
 
 \bibliographystyle{abbrv}
 \bibliography{sigproc} 
-\subsection{References}
-Generated by bibtex from your ~.bib file.  Run latex,
-then bibtex, then latex twice (to resolve references)
-to create the ~.bbl file.  Insert that ~.bbl file into
-the .tex source file and comment out
-the command \texttt{{\char'134}thebibliography}.
 
 \end{document}
 \begin{thebibliography}{1}
-
-\bibitem{ontology1}
-T.~R. Gruber.
-\newblock Toward principles for the design of ontologies used for knowledge
-sharing?
-\newblock {\em International journal of human-computer studies},
-43(5):907--928, 1995.
 
 \end{thebibliography}
