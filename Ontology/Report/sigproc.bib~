@@ -104,7 +104,7 @@
   year={2011}
 }
 
-@article{what1,
+@article{what,
   title={A Practical Guide To Building OWL Ontologies Using The Prot{\'e}g{\'e}-OWL Plugin and CO-ODE Tools Edition 1.0},
   author={Horridge, Matthew and Knublauch, Holger and Rector, Alan and Stevens, Robert and Wroe, Chris},
   journal={University of Manchester},
