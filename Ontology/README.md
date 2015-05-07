@@ -49,7 +49,7 @@ After installing Python 2.7, run the tools with the testcases called input.txt
 	python my_parser.py input.txt 
 
 #### Output
-The output includes 
+The output is stored in files called output.txt under the MSL_To_Ontology and DAP_To_Ontology directories. output.txt includes 
 
 * namedIndividual
 * propertyAssertion
