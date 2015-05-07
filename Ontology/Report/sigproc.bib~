@@ -111,13 +111,22 @@
   year={2004}
 }
 
-@article{protege,
-  title={The evolution of Prot{\'e}g{\'e}: an environment for knowledge-based systems development},
-  author={Gennari, John H and Musen, Mark A and Fergerson, Ray W and Grosso, William E and Crub{\'e}zy, Monica and Eriksson, Henrik and Noy, Natalya F and Tu, Samson W},
-  journal={International Journal of Human-computer studies},
-  volume={58},
-  number={1},
-  pages={89--123},
-  year={2003},
-  publisher={Elsevier}
+
+@article{owl1,
+  title={OWL web ontology language overview},
+  author={McGuinness, Deborah L and Van Harmelen, Frank and others},
+  journal={W3C recommendation},
+  volume={10},
+  number={10},
+  pages={2004},
+  year={2004}
+}
+@article{owl2,
+  title={OWL 2 web ontology language: Structural specification and functional-style syntax},
+  author={Motik, Boris and Patel-Schneider, Peter F and Parsia, Bijan and Bock, Conrad and Fokoue, Achille and Haase, Peter and Hoekstra, Rinke and Horrocks, Ian and Ruttenberg, Alan and Sattler, Uli and others},
+  journal={W3C recommendation},
+  volume={27},
+  number={65},
+  pages={159},
+  year={2009}
 }

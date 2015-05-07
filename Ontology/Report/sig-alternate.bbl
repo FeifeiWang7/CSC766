@@ -1,4 +1,36 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
+
+\bibitem{porple}
+G.~Chen, B.~Wu, D.~Li, and X.~Shen.
+\newblock Porple: An extensible optimizer for portable data placement on gpu.
+\newblock In {\em Microarchitecture (MICRO), 2014 47th Annual IEEE/ACM
+  International Symposium on}, pages 88--100. IEEE, 2014.
+
+\bibitem{ontology4}
+P.~De~Leenheer and R.~Meersman.
+\newblock Towards community-based evolution of knowledge-intensive systems.
+\newblock In {\em On the Move to Meaningful Internet Systems 2007: CoopIS, DOA,
+  ODBASE, GADA, and IS}, pages 989--1006. Springer, 2007.
+
+\bibitem{ontology3}
+A.~De~Moor, P.~De~Leenheer, and R.~Meersman.
+\newblock Dogma-mess: A meaning evolution support system for
+  interorganizational ontology engineering.
+\newblock In {\em Conceptual structures: Inspiration and application}, pages
+  189--202. Springer, 2006.
+
+\bibitem{work2}
+G.~Ganapathi, R.~Lourdusamy, and V.~Rajaram.
+\newblock Towards ontology development for teaching programming language.
+\newblock In {\em World Congress on Engineering}, 2011.
+
+\bibitem{protege}
+J.~H. Gennari, M.~A. Musen, R.~W. Fergerson, W.~E. Grosso, M.~Crub{\'e}zy,
+  H.~Eriksson, N.~F. Noy, and S.~W. Tu.
+\newblock The evolution of prot{\'e}g{\'e}: an environment for knowledge-based
+  systems development.
+\newblock {\em International Journal of Human-computer studies}, 58(1):89--123,
+  2003.
 
 \bibitem{ontology1}
 T.~R. Gruber.
@@ -6,5 +38,61 @@ T.~R. Gruber.
   sharing?
 \newblock {\em International journal of human-computer studies},
   43(5):907--928, 1995.
+
+\bibitem{ontology2}
+N.~Guarino.
+\newblock Formal ontology, conceptual analysis and knowledge representation.
+\newblock {\em International journal of human-computer studies},
+  43(5):625--640, 1995.
+
+\bibitem{what1}
+M.~Horridge, H.~Knublauch, A.~Rector, R.~Stevens, and C.~Wroe.
+\newblock A practical guide to building owl ontologies using the
+  prot{\'e}g{\'e}-owl plugin and co-ode tools edition 1.0.
+\newblock {\em University of Manchester}, 2004.
+
+\bibitem{related1}
+B.~Jang, D.~Schaa, P.~Mistry, and D.~Kaeli.
+\newblock Exploiting memory access patterns to improve memory performance in
+  data-parallel architectures.
+\newblock {\em Parallel and Distributed Systems, IEEE Transactions on},
+  22(1):105--118, 2011.
+
+\bibitem{ontology6}
+A.~S. Kleshchev.
+\newblock How can ontologies contribute to software development?
+\newblock In {\em Knowledge Processing and Data Analysis}, pages 121--135.
+  Springer, 2011.
+
+\bibitem{related2}
+W.~Ma and G.~Agrawal.
+\newblock An integer programming framework for optimizing shared memory use on
+  gpus.
+\newblock In {\em High Performance Computing (HiPC), 2010 International
+  Conference on}, pages 1--10. IEEE, 2010.
+
+\bibitem{work1}
+S.~Sosnovsky and T.~Gavrilova.
+\newblock Development of educational ontology for c-programming.
+\newblock 2006.
+
+\bibitem{ontology5}
+Y.~Tang, S.~Christiaens, K.~Kerremans, and R.~Meersman.
+\newblock Profile compiler: Ontology-based, community-grounded, multilingual
+  online services to support collaborative decision making.
+\newblock In {\em Research Challenges in Information Science, 2008. RCIS 2008.
+  Second International Conference on}, pages 279--288. IEEE, 2008.
+
+\bibitem{intro2}
+F.~Van~Harmelen, V.~Lifschitz, and B.~Porter.
+\newblock {\em Handbook of knowledge representation}, volume~1.
+\newblock Elsevier, 2008.
+
+\bibitem{related3}
+B.~Wang, B.~Wu, D.~Li, X.~Shen, W.~Yu, Y.~Jiao, and J.~S. Vetter.
+\newblock Exploring hybrid memory for gpu energy efficiency through
+  software-hardware co-design.
+\newblock In {\em Proceedings of the 22nd international conference on Parallel
+  architectures and compilation techniques}, pages 93--102. IEEE Press, 2013.
 
 \end{thebibliography}
