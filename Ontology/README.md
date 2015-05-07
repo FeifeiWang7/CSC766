@@ -9,7 +9,7 @@ Extending an existing ontology-based program analysis tool to provide guidance o
 There are two tools. One tool can convert MSL specifications into ontology. The other tool can convert Data Access Patterns used by PORPLE into ontology.
 
 ##### Structure of the MSL tool
-If you are in the CSC766 directory, open the code by:
+If you are in the Ontology directory, open the code by:
 
 	cd MSL_To_Ontology
 	vim my_parser.py
