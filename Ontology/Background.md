@@ -2,6 +2,8 @@
 
 #### What Is An Ontology
 
+Ontology is a general-purpose model for knowledge (generability, extensibility, resuability)
+
 An ontology is an explicit description of a domain:
 * concepts
 * properties and attributes of concepts
